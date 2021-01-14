@@ -23,4 +23,10 @@ class Api::V1::NotesController < ApplicationController
     @note.update(note_params)
     render json: @note, status: 200 
   end
+
+  private 
+    def notes_params
+      params.require(:note).permit(:body)
+    end
+
 end
