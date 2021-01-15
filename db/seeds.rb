@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Notes.create([
+Note.create([
   { body: 'Plan what features your app will have. You can write User Stories to help make it clear what you are planning to build'},
-  { body: 'Model your domain. You need to know what the nouns in your project are - the objects in the 'world' of your application. It can be helpful to draw the relationships between your models'},
+  { body: 'Model your domain. You need to know what the nouns in your project are - the objects in the world of your application. It can be helpful to draw the relationships between your models'},
   { body: 'Plan how your features will work.'},
   { body: 'A user is able to view travel locations, add new travel locations, edit travel locations and delete travel locations.'},
   { body: 'A user is able to review a travel location'},
