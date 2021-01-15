@@ -7,8 +7,8 @@ class Notes {
   }
 
   fetchAndLoadNotes() {
-    this.adapter.getNotes().then((notes) => {
-      console.log(notes);
-    });
+    this.adapter.getNotes().then(notes => {
+      console.log(notes)
+    })
   }
 }
