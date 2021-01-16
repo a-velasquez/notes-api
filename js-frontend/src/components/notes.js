@@ -22,6 +22,4 @@ class Notes {
     notesContainer.innerHTML = 'my notes here'
     console.log('My notes are', this.notes)
   }
-
-
 }
