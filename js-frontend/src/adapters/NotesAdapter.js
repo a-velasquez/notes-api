@@ -4,10 +4,10 @@ sometimes called service or adapter
 */
 class NotesAdapter {
   constructor() {
-    this.baseUrl = "http://localhost:3000/api/v1/notes"
+    this.baseUrl = "http://localhost:3000/api/v1/notes";
   }
 
   getNotes() {
-    return fetch(this.baseUrl).then(res => res.json())
+    return fetch(this.baseUrl).then((res) => res.json());
   }
 }
