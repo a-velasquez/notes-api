@@ -11,14 +11,20 @@
     <h1>Note App</h1>
     <div id="new-note-container">
       <form id="new-note-form">
-        <input type="text" />
-        <input type="submit" />
+        <input type="text" name="note-body" id="new-note-body">
+        <input type="submit" value="Save Note">
       </form>
     </div>
-    <div id="notes-container">
+    <div id="notes-content">
+      <ul id="notes-container">
 
+      </ul>
+      <div id="note-show">
+
+      </div>
     </div>
   </div>
+  <script type="text/javascript" src="src/components/note.js"></script>
   <script src="src/components/notes.js"></script>
   <script src="src/components/app.js"></script>
   <script src="src/adapters/NotesAdapter.js"></script>
