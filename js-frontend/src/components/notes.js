@@ -8,6 +8,13 @@ class Notes {
 
   initiBindingsAndEventListeners() {
     this.notesContainer = document.getElementById("notes-container");
+    this.noteForm = document.getElementById('new-note-form');
+    this.noteForm.addEventListener('submit', this.createNote);
+  }
+
+  createNote(e) {
+    e.preventDefault();  // prevents page from being reload on form submit 
+    console.log('note is being created.');
   }
 
   fetchAndLoadNotes() {
