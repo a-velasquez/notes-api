@@ -11,9 +11,7 @@ class Notes {
     this.newNoteBody = document.getElementById("new-note-body");
     this.noteForm = document.getElementById('new-note-form');
     this.noteForm.addEventListener('submit', this.createNote.bind(this));
-    this.notesContainer.addEventListener('dblclick', function() {
-      console.log('double clicked')
-    })
+    this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
   }
 
   createNote(e) {
@@ -26,6 +24,11 @@ class Notes {
       this.newNoteBody.value = ''
       this.render()
     })
+  }
+
+  handleNoteClick(e) {
+    const li = e.target
+    li.contentEditable = true
   }
 
   fetchAndLoadNotes() {
