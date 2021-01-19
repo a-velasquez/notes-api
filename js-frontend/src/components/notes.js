@@ -11,11 +11,21 @@ class Notes {
     this.newNoteBody = document.getElementById("new-note-body");
     this.noteForm = document.getElementById('new-note-form');
     this.noteForm.addEventListener('submit', this.createNote.bind(this));
+    this.notesContainer.addEventListener('dblclick', function() {
+      console.log('double clicked')
+    })
   }
 
   createNote(e) {
     e.preventDefault();  // prevents page from being reload on form submit 
-    console.log(this.newNoteBody.value);
+    const value = this.newNoteBody.value
+
+    this.adapter.createNote(value).then(note => {
+      // console.log(note)
+      this.notes.push(new Note(note))
+      this.newNoteBody.value = ''
+      this.render()
+    })
   }
 
   fetchAndLoadNotes() {
