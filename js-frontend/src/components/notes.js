@@ -10,22 +10,25 @@ class Notes {
     this.notesContainer = document.getElementById("notes-container");
     this.body = document.querySelector("body");
     this.newNoteBody = document.getElementById("new-note-body");
-    this.noteForm = document.getElementById('new-note-form');
-    this.noteForm.addEventListener('submit', this.createNote.bind(this));
-    this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this));
+    this.noteForm = document.getElementById("new-note-form");
+    this.noteForm.addEventListener("submit", this.createNote.bind(this));
+    this.notesContainer.addEventListener(
+      "dblclick",
+      this.handleNoteClick.bind(this)
+    );
     this.body.addEventListener("blur", this.updateNote.bind(this), true);
   }
 
   createNote(e) {
-    e.preventDefault();  // prevents page from being reload on form submit 
-    const value = this.newNoteBody.value
+    e.preventDefault(); // prevents page from being reload on form submit
+    const value = this.newNoteBody.value;
 
-    this.adapter.createNote(value).then(note => {
+    this.adapter.createNote(value).then((note) => {
       // console.log(note)
-      this.notes.push(new Note(note))
-      this.newNoteBody.value = ""
-      this.render()
-    })
+      this.notes.push(new Note(note));
+      this.newNoteBody.value = "";
+      this.render();
+    });
   }
 
   handleNoteClick(e) {
@@ -39,8 +42,10 @@ class Notes {
     const li = e.target;
     li.contentEditable = false;
     li.classList.remove("editable");
-    const newValue = li.innerHTML
-    console.log(newValue)
+    const newValue = li.innerHTML;
+    const id = li.dataset.id;
+    console.log(id)
+    this.adapter.updateNote(newValue, id);
   }
 
   fetchAndLoadNotes() {
