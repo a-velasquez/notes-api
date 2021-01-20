@@ -35,8 +35,12 @@ class Notes {
     li.classList.add("editable");
   }
 
-  updateNote() {
-    console.log('updating note')
+  updateNote(e) {
+    const li = e.target;
+    li.contentEditable = false;
+    li.classList.remove("editable");
+    const newValue = li.innerHTML
+    console.log(newValue)
   }
 
   fetchAndLoadNotes() {
