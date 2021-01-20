@@ -1,7 +1,3 @@
-/*
-Sole purpose of adapter is to connect to api
-sometimes called service or adapter
-*/
 class NotesAdapter {
   constructor() {
     this.baseUrl = "http://localhost:3000/api/v1/notes";
@@ -17,12 +13,12 @@ class NotesAdapter {
     };
 
     return fetch(this.baseUrl, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
+        "content-type": "application/json",
       },
       body: JSON.stringify({ note }),
-    }).then(res => res.json())
+    }).then((res) => res.json());
   }
 
   updateNote(value, id) {
