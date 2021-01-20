@@ -20,11 +20,10 @@ class Notes {
   }
 
   createNote(e) {
-    e.preventDefault(); // prevents page from being reload on form submit
+    e.preventDefault();
     const value = this.newNoteBody.value;
 
     this.adapter.createNote(value).then((note) => {
-      // console.log(note)
       this.notes.push(new Note(note));
       this.newNoteBody.value = "";
       this.render();
@@ -32,6 +31,10 @@ class Notes {
   }
 
   handleNoteClick(e) {
+    this.toggleNote(e);
+  }
+
+  toggleNote(e) {
     const li = e.target;
     li.contentEditable = true;
     li.focus();
@@ -44,7 +47,7 @@ class Notes {
     li.classList.remove("editable");
     const newValue = li.innerHTML;
     const id = li.dataset.id;
-    console.log(id)
+    //console.log(id)
     this.adapter.updateNote(newValue, id);
   }
 
