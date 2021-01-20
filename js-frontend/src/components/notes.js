@@ -32,7 +32,11 @@ class Notes {
     const li = e.target;
     li.contentEditable = true;
     li.focus();
-    li.classList.add("editable");  /* add highlight and padding around selected note */
+    li.classList.add("editable");
+  }
+
+  updateNote() {
+    console.log('updating note')
   }
 
   fetchAndLoadNotes() {
