@@ -30,7 +30,7 @@ class NotesAdapter {
       body: value,
     };
 
-    return fetch(`${this.baseUrl}/id`, {
+    return fetch(`${this.baseUrl}/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
