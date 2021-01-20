@@ -8,10 +8,12 @@ class Notes {
 
   initiBindingsAndEventListeners() {
     this.notesContainer = document.getElementById("notes-container");
+    this.body = document.querySelector("body");
     this.newNoteBody = document.getElementById("new-note-body");
     this.noteForm = document.getElementById('new-note-form');
     this.noteForm.addEventListener('submit', this.createNote.bind(this));
-    this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this))
+    this.notesContainer.addEventListener('dblclick', this.handleNoteClick.bind(this));
+    this.body.addEventListener("blur", this.updateNote.bind(this), true);
   }
 
   createNote(e) {
@@ -21,14 +23,16 @@ class Notes {
     this.adapter.createNote(value).then(note => {
       // console.log(note)
       this.notes.push(new Note(note))
-      this.newNoteBody.value = ''
+      this.newNoteBody.value = ""
       this.render()
     })
   }
 
   handleNoteClick(e) {
-    const li = e.target
-    li.contentEditable = true
+    const li = e.target;
+    li.contentEditable = true;
+    li.focus();
+    li.classList.add("editable");  /* add highlight and padding around selected note */
   }
 
   fetchAndLoadNotes() {
